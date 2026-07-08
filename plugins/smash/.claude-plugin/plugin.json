@@ -1,0 +1,16 @@
+{
+  "name": "smash",
+  "displayName": "Smash — Agência",
+  "version": "1.0.0",
+  "description": "Ferramentas da Agência Smash para Claude Code. Inclui o dashboard de pós-evento no Método Impacta (Visão Geral, Jornada, Retenção pela Agenda, ESG, Destaques e Time).",
+  "author": {
+    "name": "Agência Smash",
+    "url": "https://www.smasheventos.com.br"
+  },
+  "homepage": "https://www.smasheventos.com.br",
+  "keywords": ["smash", "impacta", "pos-evento", "eventos", "convencoes", "dashboard", "esg"],
+  "license": "UNLICENSED",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "defaultEnabled": true
+}
