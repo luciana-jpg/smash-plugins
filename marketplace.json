@@ -1,0 +1,20 @@
+{
+  "name": "smash-plugins",
+  "description": "Marketplace de plugins da Agência Smash para Claude Code.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "Agência Smash",
+    "email": "contato@agsmash.com.br"
+  },
+  "plugins": [
+    {
+      "name": "smash",
+      "displayName": "Smash — Agência",
+      "source": "./plugins/smash",
+      "description": "Ferramentas da Smash para Claude Code. Inclui o dashboard de pós-evento no Método Impacta.",
+      "version": "1.0.0",
+      "author": { "name": "Agência Smash" },
+      "keywords": ["smash", "impacta", "pos-evento", "eventos", "dashboard"]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh -c 'MARK=\"${CLAUDE_PLUGIN_DATA:-/tmp}/deps-installed\"; [ -f \"$MARK\" ] && exit 0; python3 -c \"import fitz, PIL\" >/dev/null 2>&1 && { mkdir -p \"$(dirname \"$MARK\")\"; touch \"$MARK\"; exit 0; }; python3 -m pip install --quiet pymupdf pillow >/dev/null 2>&1 && { mkdir -p \"$(dirname \"$MARK\")\"; touch \"$MARK\"; }; exit 0'"
+          }
+        ]
+      }
+    ]
+  }
+}
