@@ -1,5 +1,5 @@
 ---
-name: moodboard-kv-smash
+name: KV-moodboard
 description: >
   Monta o mood board de KV (key visual) de convenção ou evento da Smash a partir do
   guide de marca do cliente, do tema do evento e das refs que a Lu/Leca gostou, e
@@ -14,7 +14,7 @@ description: >
   storyboard com prompt de imagem (storyboard-prompt-smash).
 ---
 
-# Mood board de KV — Smash (v1)
+# KV-moodboard — Smash (v1)
 
 Prancha de direção de arte que vem ANTES do KV. O objetivo é fechar arquitetura
 (forma, cor, tipografia, foto, grafismo) com o cliente antes de abrir Photoshop,

@@ -23,7 +23,7 @@ Para instalar já compartilhado num projeto (via `.claude/settings.json`):
 
 | Plugin  | O que faz |
 |---------|-----------|
-| `smash` | Ferramentas da Smash. Inclui `/smash:impacta-pos-evento` (dashboard de pós-evento no Método Impacta) e `/smash:moodboard-kv-smash` (mood board de KV com refs reais de Pinterest e Adobe Stock, rotas de composição e título bilíngue). |
+| `smash` | Ferramentas da Smash. Inclui `/smash:impacta-pos-evento` (dashboard de pós-evento no Método Impacta) e `/smash:KV-moodboard` (mood board de KV com refs reais de Pinterest e Adobe Stock, rotas de composição e título bilíngue). |
 
 ## Estrutura do repositório
 ```
@@ -37,7 +37,7 @@ smash-plugins/
         ├── requirements.txt
         └── skills/
             ├── impacta-pos-evento/
-            └── moodboard-kv-smash/   # prancha de direção de arte do KV
+            └── KV-moodboard/        # prancha de direção de arte do KV
 ```
 
 ## Manutenção
