@@ -1,0 +1,529 @@
+<title>Mood Board 99Compras</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&family=Manrope:wght@400;500;700&family=Noto+Sans+SC:wght@500;900&display=swap">
+<style>
+/* Layout: bandas horizontais no mundo da marca (amarelo/preto/cinza), sketches de KV em 16:9 com unidades de container; leitura top-down como prancha de direção de arte. */
+:root{
+  --yellow:#FFDD00; --ink:#212121; --paper:#F1F1F1; --orange:#FF7B1C;
+  --paper-2:#E6E4DC; --ink-soft:#4A4A46; --white:#FFFFFF;
+  --photo-a:linear-gradient(135deg,#8a4b1f 0%,#d08a3c 45%,#f1b764 100%);
+  --photo-b:linear-gradient(160deg,#3b2a22 0%,#9c5a2a 55%,#e3a35a 100%);
+  --photo-c:linear-gradient(200deg,#5a3418 0%,#b86f2b 50%,#ffc46b 100%);
+  --display:"Outfit","DiDi Sans",system-ui,sans-serif;
+  --body:"Manrope",system-ui,sans-serif;
+  --cjk:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.band{padding-block:56px}
+.band>.in{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.yellow{background:var(--yellow)}
+.yellow .eyebrow{color:var(--ink)}
+.dark{background:var(--ink);color:var(--paper)}
+.dark .eyebrow{color:#bdbdb6}
+.dark h2{color:var(--yellow)}
+h2{font-size:clamp(28px,4vw,44px);font-weight:900;margin-bottom:18px;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700;margin-bottom:8px}
+.lead{font-size:18px;max-width:64ch}
+.cols{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));align-items:start}
+.cols>*{min-width:0}
+.prose{max-width:64ch}
+.prose p+p{margin-top:12px}
+.note{font-size:14px;color:var(--ink-soft)}
+.dark .note{color:#bdbdb6}
+
+/* HERO: capa do mood board desenhada como um KV */
+.hero{padding-block:0}
+.hero .kv{position:relative;overflow:hidden;background:var(--yellow);min-height:520px;display:grid;align-items:center}
+.hero .kv .in{position:relative;z-index:2;padding-block:64px}
+.ring{position:absolute;border:3px solid rgba(33,33,33,.18);border-radius:22%;aspect-ratio:1;pointer-events:none}
+.ring.r1{width:46vmin;right:8%;top:50%;transform:translateY(-50%)}
+.ring.r2{width:62vmin;right:3%;top:50%;transform:translateY(-50%);border-color:rgba(33,33,33,.10)}
+.ring.r3{width:80vmin;right:-3%;top:50%;transform:translateY(-50%);border-color:rgba(33,33,33,.06)}
+.window{position:absolute;right:12%;top:50%;transform:translateY(-50%);width:30vmin;aspect-ratio:1;border-radius:22%;background:var(--photo-a);box-shadow:0 30px 60px rgba(33,33,33,.18)}
+.window::after{content:"foto real: entregador, lojista, cliente";position:absolute;inset:auto 10% 8%;font:600 11px/1.3 var(--body);color:#fff;opacity:.85}
+.hero h1{font-size:clamp(44px,9vw,120px);font-weight:900;letter-spacing:-.03em;line-height:.92;max-width:9ch}
+.hero .cn{font-family:var(--cjk);font-weight:900;font-size:clamp(26px,4.6vw,60px);letter-spacing:.04em;margin-top:14px}
+.hero .meta{margin-top:26px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;font-weight:600}
+.logo{display:inline-grid;place-items:start;line-height:.85;font-family:var(--display);font-weight:900;letter-spacing:-.02em}
+.logo b{font-size:1.5em}
+.logo span{font-size:1em}
+.logo.on-yellow{background:var(--yellow);color:var(--ink);padding:10px 14px;border-radius:14px}
+.logo.on-ink{background:var(--ink);color:var(--yellow);padding:10px 14px;border-radius:14px}
+@media (max-width:720px){.ring,.window{display:none}.hero .kv{min-height:0}}
+
+/* REFS */
+.refs{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.ref{min-width:0}
+.ref img{width:100%;height:auto;display:block;border-radius:14px;max-width:100%}
+.ref figcaption{margin-top:10px;font-size:14px;color:var(--ink-soft)}
+.ref figcaption b{color:var(--ink)}
+.sys{margin-top:34px;display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.sys div{border-top:3px solid var(--ink);padding-top:10px;min-width:0}
+.sys h3{font-size:16px}
+.sys p{font-size:14px;color:var(--ink-soft)}
+
+
+/* REFS DE BANCO */
+.grp{margin-top:34px}
+.grp h3{font-size:22px}
+.gal{column-count:4;column-gap:14px;margin-top:12px}
+@media (max-width:1000px){.gal{column-count:3}}
+@media (max-width:680px){.gal{column-count:2}}
+.rf{break-inside:avoid;margin:0 0 14px;background:var(--white);border-radius:12px;overflow:hidden}
+.rf img{width:100%;height:auto;display:block}
+.rf figcaption{padding:10px 12px 12px;font-size:13px;line-height:1.4;color:var(--ink)}
+.rf figcaption span{display:block;margin-top:6px;font-size:11px;color:var(--ink-soft)}
+.rf a{text-decoration:none}
+.rf figcaption a{text-decoration:underline;text-underline-offset:2px}
+
+/* DNA */
+.swatches{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(120px,1fr))}
+.sw{border-radius:14px;padding:14px 12px;min-height:120px;display:flex;flex-direction:column;justify-content:flex-end;font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
+.sw small{display:block;font-weight:400;opacity:.8}
+.typeline{display:grid;gap:4px}
+.typeline span{font-family:var(--display)}
+.ratio{display:flex;height:22px;border-radius:999px;overflow:hidden;margin-top:10px}
+.ratio i{display:block;height:100%}
+.rules{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15px}
+.rules li{padding-left:22px;position:relative}
+.rules li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:3px;background:var(--yellow);border:2px solid var(--ink)}
+
+/* CONCEITO */
+.concept{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.concept article{min-width:0}
+.glyph{height:120px;border-radius:16px;background:var(--paper);display:grid;place-items:center;margin-bottom:12px;position:relative;overflow:hidden}
+.g-portal{width:64px;aspect-ratio:1;border-radius:22%;background:var(--photo-b);outline:3px solid var(--ink);outline-offset:6px}
+.g-rings{width:54px;aspect-ratio:1;border-radius:22%;border:3px solid var(--ink);box-shadow:0 0 0 12px var(--paper),0 0 0 15px rgba(33,33,33,.45),0 0 0 27px var(--paper),0 0 0 30px rgba(33,33,33,.2)}
+.g-type{font-family:var(--display);font-weight:900;font-size:40px;letter-spacing:-.03em;line-height:.9;text-align:center}
+.g-type small{display:block;font-family:var(--cjk);font-size:16px;letter-spacing:.1em;font-weight:900}
+
+/* ROTAS (sketches) */
+.routes{display:grid;gap:30px}
+.route{display:grid;gap:22px;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start}
+@media (max-width:820px){.route{grid-template-columns:1fr}}
+.sk{container-type:inline-size;width:100%;max-width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;position:relative;background:var(--yellow);color:var(--ink);font-family:var(--display);font-weight:900;letter-spacing:-.03em}
+.sk .t{position:absolute;line-height:.88;font-size:12cqw}
+.sk .cn{position:absolute;font-family:var(--cjk);font-size:4.4cqw;letter-spacing:.06em;font-weight:900}
+.sk .lg{position:absolute;right:3cqw;bottom:3cqw;font-size:2.8cqw;line-height:.85}
+.sk .lg b{font-size:1.5em;display:block}
+/* A: moldura */
+.skA .win{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34cqw;aspect-ratio:1;border-radius:22%;background:var(--photo-a);z-index:1}
+.skA .rg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);aspect-ratio:1;border-radius:22%;border:.6cqw solid rgba(33,33,33,.16)}
+.skA .rg1{width:48cqw}.skA .rg2{width:62cqw;border-color:rgba(33,33,33,.09)}.skA .rg3{width:78cqw;border-color:rgba(33,33,33,.05)}
+.skA .t1{left:5cqw;top:22cqw;z-index:2}
+.skA .t2{right:5cqw;top:22cqw;z-index:0;text-align:right}
+.skA .cn{left:5cqw;bottom:8cqw;z-index:2}
+/* B: mosaico */
+.skB .tile{position:absolute;border-radius:12%;background:var(--photo-b)}
+.skB .t1{left:4cqw;top:50%;transform:translateY(-50%);z-index:3;color:#fff;text-shadow:0 2px 0 rgba(33,33,33,.18);font-size:14cqw;max-width:60cqw;line-height:.85}
+.skB .cn{left:4cqw;bottom:5cqw;z-index:3}
+.skB .hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:26cqw;height:70cqw;z-index:2;border-radius:30% 30% 0 0/18% 18% 0 0;background:linear-gradient(180deg,#f3c57a,#7a3c15)}
+/* C: portal 99 */
+.skC .nn{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);font-size:58cqw;line-height:.8;letter-spacing:-.06em;background:var(--photo-c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.skC .t1{left:5cqw;bottom:14cqw;font-size:7.5cqw;z-index:2}
+.skC .cn{left:5cqw;bottom:7cqw;z-index:2}
+.pros{display:grid;gap:10px;font-size:15px}
+.pros p b{display:block;font-family:var(--display);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+.tag{display:inline-block;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--yellow);padding:4px 10px;border-radius:999px;margin-bottom:10px}
+
+/* CHINÊS */
+.cn-opts{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.cn-opt{background:var(--white);border-radius:16px;padding:22px 20px;min-width:0}
+.cn-opt.lead-opt{outline:3px solid var(--ink)}
+.cn-opt .big{font-family:var(--cjk);font-weight:900;font-size:38px;letter-spacing:.06em;line-height:1.1}
+.cn-opt .py{font-size:13px;color:var(--ink-soft);margin-top:4px;font-style:italic}
+.cn-opt p{margin-top:10px;font-size:14px}
+.lockup{margin-top:30px;background:var(--yellow);border-radius:16px;padding:34px 24px;display:grid;gap:6px}
+.lockup .pt{font-family:var(--display);font-weight:900;font-size:clamp(34px,6vw,72px);letter-spacing:-.03em;line-height:.9}
+.lockup .zh{font-family:var(--cjk);font-weight:900;font-size:clamp(18px,2.8vw,32px);letter-spacing:.08em}
+.lockup .cap{font-size:13px;color:var(--ink-soft);margin-top:10px}
+
+/* FOTO */
+.photo-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.ph{aspect-ratio:1;border-radius:16px;padding:12px;display:flex;align-items:flex-end;color:#fff;font-size:13px;font-weight:600;line-height:1.25;max-width:100%}
+
+/* RISCOS */
+.risk{display:grid;gap:14px}
+.risk div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:14px;padding:14px 0;border-top:1px solid #3a3a36}
+.risk div:last-child{border-bottom:1px solid #3a3a36}
+.risk h3{font-size:16px;color:var(--yellow);margin:0}
+.risk p{font-size:14px;color:#d6d6cf}
+@media (max-width:640px){.risk div{grid-template-columns:1fr}}
+
+/* NEXT */
+.next ol{margin:0;padding-left:22px;display:grid;gap:8px;font-size:15px;max-width:64ch}
+.foot{font-size:13px;color:var(--ink-soft);padding-block:24px}
+</style>
+
+<!-- HERO -->
+<section class="band hero">
+  <div class="kv">
+    <div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div>
+    <div class="window"></div>
+    <div class="in">
+      <p class="eyebrow">Mood board de KV · Convenção 99Compras · direção de arte</p>
+      <h1>O legado começa aqui</h1>
+      <p class="cn">传承始于此</p>
+      <div class="meta">
+        <span>Smash para 99Compras</span>
+        <span>Base: pocket guide v3 + refs Shell Select e Itaú</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE AS REFS TÊM EM COMUM -->
+<section class="band">
+  <div class="in">
+    <p class="eyebrow">01 · As duas refs, decodificadas</p>
+    <h2>Você escolheu duas peças que são o mesmo sistema</h2>
+    <p class="lead">Shell Select e Itaú são marcas diferentes, mas as duas peças seguem a mesma gramática. É isso que o KV vai herdar. O que muda é a cor, a foto e o grafismo que entra no título.</p>
+    <div class="refs" style="margin-top:28px">
+      <figure class="ref">
+        <img src="ref-shell.webp" alt="Campanha Shell Select, Vale a parada: fundo amarelo, mosaico de fotos com cantos arredondados e título branco gigante cruzando as fotos">
+        <figcaption><b>Shell Select, "Vale a parada".</b> Amarelo chapado, mosaico de fotos com canto arredondado, pessoa real em primeiro plano, título branco que passa na frente e atrás das fotos, e a seta em V no lugar de uma letra.</figcaption>
+      </figure>
+      <figure class="ref">
+        <img src="ref-itau.webp" alt="Campanha Itaú, Vive más protegido: fundo laranja, janela central arredondada com foto de tenista e anéis concêntricos, título branco dividido nos dois lados">
+        <figcaption><b>Itaú, "Vive más protegido".</b> Laranja chapado, uma única janela arredondada com a foto, anéis concêntricos tonais, título dividido em dois lados da janela, e o cadeado desenhado dentro da palavra.</figcaption>
+      </figure>
+    </div>
+    <div class="sys">
+      <div><h3>Cor sólida de marca em 100% do fundo</h3><p>Nada de degradê, nada de fundo escuro. A cor da marca é o cenário inteiro.</p></div>
+      <div><h3>Janela arredondada como moldura da foto</h3><p>Squircle ou retângulo de canto redondo. Na 99 isso já existe: é a forma de proteção do logo e do app icon.</p></div>
+      <div><h3>Título gigante que atravessa a foto</h3><p>Tipografia bold, caixa baixa, ocupa 60% da largura e entra na frente e atrás das camadas.</p></div>
+      <div><h3>Grafismo dentro da palavra</h3><p>Seta na Shell, cadeado no Itaú. Um ícone substitui ou abraça uma letra e vira a assinatura da campanha.</p></div>
+      <div><h3>Foto real, luz quente, gente sorrindo</h3><p>Sem 3D, sem render, sem IA aparente. Pessoa, lugar, produto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- REFS DE BANCO -->
+<section class="band" style="background:var(--paper-2)">
+  <div class="in">
+    <p class="eyebrow">02 · Refs de banco de imagem</p>
+    <h2>O que achei no Pinterest e no Adobe Stock</h2>
+    <p class="lead">Varri dez boards do Pinterest (amarelo, key visual de evento, bilíngue, bento, identidade de evento corporativo) e o Adobe Stock pelo conector. Ficaram estas, agrupadas pelo que cada uma ensina pro KV. Clique na imagem pra abrir a fonte.</p>
+    <div class="grp"><h3>Forma e sistema: amarelo chapado, preto, anel e janela</h3><p class="note">O que leva pra rota A. Fundo amarelo inteiro, um elemento só, tipografia preta. O anel do Fiat é a referência mais próxima do que proponho pros anéis do legado.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/44/ee/e4/44eee49ebfa35db6660d7ad8e0626036.jpg"><img src="refs/p131.jpg" alt="Fiat 500: anéis concêntricos sobre amarelo. É o grafismo do legado se espalhando" loading="lazy" width="640" height="900"></a><figcaption>Fiat 500: anéis concêntricos sobre amarelo. É o grafismo do legado se espalhando, com a foto no centro.<span><a href="https://i.pinimg.com/736x/44/ee/e4/44eee49ebfa35db6660d7ad8e0626036.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/4f/2b/97/4f2b973bcef0553b7e90a3e277d785aa.jpg"><img src="refs/p129.jpg" alt="Respiro: 80% de amarelo e a pessoa pequena embaixo. Mostra que amarelo aguenta v" loading="lazy" width="550" height="900"></a><figcaption>Respiro: 80% de amarelo e a pessoa pequena embaixo. Mostra que amarelo aguenta vazio.<span><a href="https://i.pinimg.com/736x/4f/2b/97/4f2b973bcef0553b7e90a3e277d785aa.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/5b/12/b4/5b12b4a85c5e85351871908a4ee68bef.jpg"><img src="refs/p117.jpg" alt="Figura preta chapada no amarelo. Contraste máximo, lê de longe." loading="lazy" width="550" height="826"></a><figcaption>Figura preta chapada no amarelo. Contraste máximo, lê de longe.<span><a href="https://i.pinimg.com/736x/5b/12/b4/5b12b4a85c5e85351871908a4ee68bef.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/f3/df/1b/f3df1b549b03de3c58e00c7170bdb2c0.jpg"><img src="refs/p056.jpg" alt="Luz como grafismo: o facho é a única forma. Boa metáfora pra &#x27;aqui&#x27;." loading="lazy" width="720" height="900"></a><figcaption>Luz como grafismo: o facho é a única forma. Boa metáfora pra &#x27;aqui&#x27;.<span><a href="https://i.pinimg.com/736x/f3/df/1b/f3df1b549b03de3c58e00c7170bdb2c0.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/yellow-poster-design/953069733193/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c2/61/1f/c2611f427d8fd4eb9d4610d136c4f2d7.jpg"><img src="refs/p053.jpg" alt="Bold preto sobre mostarda, caixa alta, quebra por sílaba. Pro título em preto." loading="lazy" width="409" height="580"></a><figcaption>Bold preto sobre mostarda, caixa alta, quebra por sílaba. Pro título em preto.<span><a href="https://i.pinimg.com/736x/c2/61/1f/c2611f427d8fd4eb9d4610d136c4f2d7.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/yellow-poster-design/953069733193/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c2/9c/b3/c29cb33e9da1265c23902dc18e52017a.jpg"><img src="refs/p060.jpg" alt="Pergunta em bold preto, alinhado à esquerda, amarelo. O lockup mais limpo da pra" loading="lazy" width="600" height="800"></a><figcaption>Pergunta em bold preto, alinhado à esquerda, amarelo. O lockup mais limpo da prancha.<span><a href="https://i.pinimg.com/736x/c2/9c/b3/c29cb33e9da1265c23902dc18e52017a.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/yellow-poster-design/953069733193/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/8a/cf/e6/8acfe603c32bf0ce97951b2ddaf0170d.jpg"><img src="refs/p051.jpg" alt="Amarelo + foto de objeto amarelo + céu. Prova que amarelo sobre amarelo funciona" loading="lazy" width="720" height="900"></a><figcaption>Amarelo + foto de objeto amarelo + céu. Prova que amarelo sobre amarelo funciona com uma cor de fundo.<span><a href="https://i.pinimg.com/736x/8a/cf/e6/8acfe603c32bf0ce97951b2ddaf0170d.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/yellow-poster-design/953069733193/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c1/fc/45/c1fc455aa0e3454432625f8e949e0c1d.jpg"><img src="refs/p098.jpg" alt="Grid de pixels amarelos saindo do papel. Ideia pra animação dos anéis no telão." loading="lazy" width="736" height="736"></a><figcaption>Grid de pixels amarelos saindo do papel. Ideia pra animação dos anéis no telão.<span><a href="https://i.pinimg.com/736x/c1/fc/45/c1fc455aa0e3454432625f8e949e0c1d.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/square-poster-design/908089282396/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/44/f4/ec/44f4ec46b1e7deddd0cdecb8ec40a898.jpg"><img src="refs/p104.jpg" alt="Squircles soltas, só forma. A proteção do logo 99 é exatamente isso." loading="lazy" width="512" height="512"></a><figcaption>Squircles soltas, só forma. A proteção do logo 99 é exatamente isso.<span><a href="https://i.pinimg.com/736x/44/f4/ec/44f4ec46b1e7deddd0cdecb8ec40a898.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/square-poster-design/908089282396/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/06/93/13/069313b83ebffb7dee6a246277dd9d5e.jpg"><img src="refs/p088.jpg" alt="Grid de quadrados coloridos atrás do título. Versão simplificada do mosaico." loading="lazy" width="600" height="799"></a><figcaption>Grid de quadrados coloridos atrás do título. Versão simplificada do mosaico.<span><a href="https://i.pinimg.com/736x/06/93/13/069313b83ebffb7dee6a246277dd9d5e.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/square-poster-design/908089282396/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Foto + amarelo: como juntar sem virar Shell</h3><p class="note">Nas refs abaixo a foto entra em preto e branco ou com tratamento, e o amarelo vem como camada. É um jeito de usar a mesma cor da Shell sem a mesma peça.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/ad/85/30/ad8530992800539f5800d3e36470b1cc.jpg"><img src="refs/p125.jpg" alt="Under Armour: mosaico de retratos com máscara amarela nos olhos. O mosaico da ro" loading="lazy" width="685" height="900"></a><figcaption>Under Armour: mosaico de retratos com máscara amarela nos olhos. O mosaico da rota B com foto tratada, não colorida.<span><a href="https://i.pinimg.com/736x/ad/85/30/ad8530992800539f5800d3e36470b1cc.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/5d/c9/54/5dc954db370af0355dc15f2237769a04.jpg"><img src="refs/p122.jpg" alt="Orquestra de Tóquio: foto P&amp;B recortada em círculos e barras amarelas. Janela + " loading="lazy" width="636" height="900"></a><figcaption>Orquestra de Tóquio: foto P&amp;B recortada em círculos e barras amarelas. Janela + halftone.<span><a href="https://i.pinimg.com/736x/5d/c9/54/5dc954db370af0355dc15f2237769a04.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/db/6f/d5/db6fd5a4bbfdc7240d0b510b727bd187.jpg"><img src="refs/p124.jpg" alt="Foto em tons de cinza com tipografia amarela diagonal. Energia sem perder a marc" loading="lazy" width="637" height="900"></a><figcaption>Foto em tons de cinza com tipografia amarela diagonal. Energia sem perder a marca.<span><a href="https://i.pinimg.com/736x/db/6f/d5/db6fd5a4bbfdc7240d0b510b727bd187.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/94/a6/76/94a676e076f6baa3074a34f6dd7d3858.jpg"><img src="refs/p096.jpg" alt="Retrato com blocos de cor por cima. Pixel como máscara, dá pra fazer com squircl" loading="lazy" width="720" height="900"></a><figcaption>Retrato com blocos de cor por cima. Pixel como máscara, dá pra fazer com squircle.<span><a href="https://i.pinimg.com/736x/94/a6/76/94a676e076f6baa3074a34f6dd7d3858.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/square-poster-design/908089282396/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/da/26/8d/da268db0e8d13c379635f7637cc054b1.jpg"><img src="refs/p176.jpg" alt="Pessoa rasgando o papel amarelo. Literal demais, mas é a ideia de &#x27;começa aqui&#x27; " loading="lazy" width="626" height="417"></a><figcaption>Pessoa rasgando o papel amarelo. Literal demais, mas é a ideia de &#x27;começa aqui&#x27; em foto.<span><a href="https://i.pinimg.com/736x/da/26/8d/da268db0e8d13c379635f7637cc054b1.jpg">imagem</a> · <a href="https://in.pinterest.com/ideas/yellow-advertising/913211990358/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Tiles arredondados: o sistema das redes sociais brasileiras</h3><p class="note">Foi daqui que a Shell e o Itaú beberam. Repare que o Brasil já usa isso em tudo (crédito, dia do cliente, convenção de franqueados). Bom pra desdobrar, perigoso pro KV se for a única ideia.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/8c/9f/c4/8c9fc4eeb30b2e83bcdf84afc478ed72.jpg"><img src="refs/p186.jpg" alt="Bento verde: tiles de canto redondo, pessoa em primeiro plano, um tile de textur" loading="lazy" width="720" height="900"></a><figcaption>Bento verde: tiles de canto redondo, pessoa em primeiro plano, um tile de textura. Rota B pronta, só trocar a cor.<span><a href="https://i.pinimg.com/736x/8c/9f/c4/8c9fc4eeb30b2e83bcdf84afc478ed72.jpg">imagem</a> · <a href="https://br.pinterest.com/matheusfreitas70/bento-grid/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c8/60/c5/c860c56f7f0cf4fdfd6200959bb990e0.jpg"><img src="refs/p184.jpg" alt="Squircles grandes como grafismo de fundo e a pessoa saindo da forma. Boa pra ver" loading="lazy" width="600" height="750"></a><figcaption>Squircles grandes como grafismo de fundo e a pessoa saindo da forma. Boa pra vertical (crachá, totem).<span><a href="https://i.pinimg.com/736x/c8/60/c5/c860c56f7f0cf4fdfd6200959bb990e0.jpg">imagem</a> · <a href="https://br.pinterest.com/matheusfreitas70/bento-grid/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/ca/9e/7b/ca9e7b230653f675f76602e6500b069a.jpg"><img src="refs/p189.jpg" alt="Tile arredondado com foto + bloco de texto em cima. Jeito de desdobrar o KV em p" loading="lazy" width="736" height="736"></a><figcaption>Tile arredondado com foto + bloco de texto em cima. Jeito de desdobrar o KV em post.<span><a href="https://i.pinimg.com/736x/ca/9e/7b/ca9e7b230653f675f76602e6500b069a.jpg">imagem</a> · <a href="https://br.pinterest.com/matheusfreitas70/bento-grid/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c7/bb/7c/c7bb7c47da3bcff0c5b77c88aa1b1b64.jpg"><img src="refs/p218.jpg" alt="Laranja gradiente dentro de forma arredondada, texto pequeno. Serve de contrapon" loading="lazy" width="671" height="900"></a><figcaption>Laranja gradiente dentro de forma arredondada, texto pequeno. Serve de contraponto: é o que NÃO fazer no 99, laranja só em detalhe.<span><a href="https://i.pinimg.com/736x/c7/bb/7c/c7bb7c47da3bcff0c5b77c88aa1b1b64.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/84/7c/e8/847ce8bc96fcb02698cec9e5d95552d6.jpg"><img src="refs/p220.jpg" alt="Sistema completo em duas cores (verde e laranja) com todos os pontos de contato." loading="lazy" width="600" height="900"></a><figcaption>Sistema completo em duas cores (verde e laranja) com todos os pontos de contato. Lógica de identidade, não de peça.<span><a href="https://i.pinimg.com/736x/84/7c/e8/847ce8bc96fcb02698cec9e5d95552d6.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/e0/66/77/e06677d8d4c7e363fb34a956b1d40795.jpg"><img src="refs/p075.jpg" alt="OOH com moldura arredondada e foto escura dentro. O squircle como janela em mídi" loading="lazy" width="720" height="900"></a><figcaption>OOH com moldura arredondada e foto escura dentro. O squircle como janela em mídia exterior.<span><a href="https://i.pinimg.com/736x/e0/66/77/e06677d8d4c7e363fb34a956b1d40795.jpg">imagem</a> · <a href="https://www.pinterest.com/ideas/event-key-visual/953701688107/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Bilíngue e tipografia chinesa</h3><p class="note">Refs de como o chinês entra como tipografia, não como legenda. Todas tratam os dois alfabetos com o mesmo peso e as mesmas regras de grid.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/37/23/9d/37239d973fc63368f717009b97b0f7c2.jpg"><img src="refs/p130.jpg" alt="Preto sobre amarelo, caracteres chineses em bloco pesado, grão de impressão. É o" loading="lazy" width="563" height="900"></a><figcaption>Preto sobre amarelo, caracteres chineses em bloco pesado, grão de impressão. É o par visual do nosso lockup.<span><a href="https://i.pinimg.com/736x/37/23/9d/37239d973fc63368f717009b97b0f7c2.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/69/26/d1/6926d168cff5f8dbfad292ccf8339357.jpg"><img src="refs/p136.jpg" alt="Pequim, exposição de arte jovem: chinês e inglês no mesmo corpo e mesmo peso, bo" loading="lazy" width="637" height="900"></a><figcaption>Pequim, exposição de arte jovem: chinês e inglês no mesmo corpo e mesmo peso, bolas amarelas. A ref mais próxima do que quero pro título.<span><a href="https://i.pinimg.com/736x/69/26/d1/6926d168cff5f8dbfad292ccf8339357.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/45/90/2e/45902e479396d7c33171531c2f7c139f.jpg"><img src="refs/p133.jpg" alt="Hangzhou Art Book Fair: bilíngue sobre amarelo, com grafismo. Mostra que dá pra " loading="lazy" width="675" height="900"></a><figcaption>Hangzhou Art Book Fair: bilíngue sobre amarelo, com grafismo. Mostra que dá pra ser leve.<span><a href="https://i.pinimg.com/736x/45/90/2e/45902e479396d7c33171531c2f7c139f.jpg">imagem</a> · <a href="https://www.pinterest.com/barierhsu/graphic-design-yellow/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/88/6b/af/886baf50710a0970d4e1b8168e9bed81.jpg"><img src="refs/p160.jpg" alt="Tanaka Ikko, DESIGN SIGHT: um T gigante amarelo e o japonês vertical. Escala de " loading="lazy" width="303" height="430"></a><figcaption>Tanaka Ikko, DESIGN SIGHT: um T gigante amarelo e o japonês vertical. Escala de letra como imagem (rota C).<span><a href="https://i.pinimg.com/736x/88/6b/af/886baf50710a0970d4e1b8168e9bed81.jpg">imagem</a> · <a href="https://www.pinterest.com/cbbtx/bilingual-design/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/a5/36/b0/a536b02bacdf2a44d834cd1817e5a696.jpg"><img src="refs/p144.jpg" alt="Only One: japonês, coreano e inglês. Latim como forma gigante, ideograma como te" loading="lazy" width="566" height="800"></a><figcaption>Only One: japonês, coreano e inglês. Latim como forma gigante, ideograma como texto.<span><a href="https://i.pinimg.com/736x/a5/36/b0/a536b02bacdf2a44d834cd1817e5a696.jpg">imagem</a> · <a href="https://www.pinterest.com/cbbtx/bilingual-design/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/9b/d6/0f/9bd60f8d1ae94f55604e0792bf07e1e0.jpg"><img src="refs/p150.jpg" alt="Roadside Sendai: alfabetos misturados numa composição tipográfica só." loading="lazy" width="637" height="900"></a><figcaption>Roadside Sendai: alfabetos misturados numa composição tipográfica só.<span><a href="https://i.pinimg.com/736x/9b/d6/0f/9bd60f8d1ae94f55604e0792bf07e1e0.jpg">imagem</a> · <a href="https://www.pinterest.com/cbbtx/bilingual-design/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/03/3b/d7/033bd7b61c53539e5ffe71c3ffc3c409.jpg"><img src="refs/p156.jpg" alt="The Grand Canal / 大運河: inglês desenhado como ideograma. Caminho se quiser fundir" loading="lazy" width="480" height="724"></a><figcaption>The Grand Canal / 大運河: inglês desenhado como ideograma. Caminho se quiser fundir os dois.<span><a href="https://i.pinimg.com/736x/03/3b/d7/033bd7b61c53539e5ffe71c3ffc3c409.jpg">imagem</a> · <a href="https://www.pinterest.com/cbbtx/bilingual-design/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/f9/be/af/f9beaf8445c151132d0d3b461c1a1911.jpg"><img src="refs/p042.jpg" alt="Pincelada vermelha sobre tipografia preta. Caligrafia como mancha, não como letr" loading="lazy" width="540" height="763"></a><figcaption>Pincelada vermelha sobre tipografia preta. Caligrafia como mancha, não como letra. Pra textura, não pro título.<span><a href="https://i.pinimg.com/736x/f9/be/af/f9beaf8445c151132d0d3b461c1a1911.jpg">imagem</a> · <a href="https://www.pinterest.com/hungraychi/posters-using-chinese-typography/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Amarelo em campanha de marca</h3><p class="note">Como marcas que são donas do amarelo usam a cor em mídia. O recado: ou o amarelo é fundo e o resto é mínimo, ou o amarelo é objeto e o fundo é neutro.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/08/87/f4/0887f4c39c84d651395b52616f6c4c90.jpg"><img src="refs/p163.jpg" alt="McDelivery: caminho branco serpenteando no amarelo com uma moto minúscula. Entre" loading="lazy" width="631" height="900"></a><figcaption>McDelivery: caminho branco serpenteando no amarelo com uma moto minúscula. Entrega como gesto gráfico, zero foto.<span><a href="https://i.pinimg.com/736x/08/87/f4/0887f4c39c84d651395b52616f6c4c90.jpg">imagem</a> · <a href="https://in.pinterest.com/ideas/yellow-advertising/913211990358/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/6d/b6/df/6db6df41f7c319af1c99c31cb6518529.jpg"><img src="refs/p165.jpg" alt="Lay&#x27;s: semáforo amarelo, foto de objeto no fundo amarelo. Mono cor total." loading="lazy" width="600" height="600"></a><figcaption>Lay&#x27;s: semáforo amarelo, foto de objeto no fundo amarelo. Mono cor total.<span><a href="https://i.pinimg.com/736x/6d/b6/df/6db6df41f7c319af1c99c31cb6518529.jpg">imagem</a> · <a href="https://in.pinterest.com/ideas/yellow-advertising/913211990358/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/f6/83/d7/f683d71353bf54288afa28ed372499df.jpg"><img src="refs/p167.jpg" alt="Be Bold: amarelo + azul + mão com telefone. Prova que um segundo acento forte fu" loading="lazy" width="720" height="900"></a><figcaption>Be Bold: amarelo + azul + mão com telefone. Prova que um segundo acento forte funciona se for um só.<span><a href="https://i.pinimg.com/736x/f6/83/d7/f683d71353bf54288afa28ed372499df.jpg">imagem</a> · <a href="https://in.pinterest.com/ideas/yellow-advertising/913211990358/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/fb/65/0c/fb650c16e9e61cb66717ab4bfff0c4eb.jpg"><img src="refs/p171.jpg" alt="Sting: OOH amarelo com produto no centro e título vermelho. Hierarquia de três c" loading="lazy" width="720" height="900"></a><figcaption>Sting: OOH amarelo com produto no centro e título vermelho. Hierarquia de três camadas.<span><a href="https://i.pinimg.com/736x/fb/65/0c/fb650c16e9e61cb66717ab4bfff0c4eb.jpg">imagem</a> · <a href="https://in.pinterest.com/ideas/yellow-advertising/913211990358/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Convenção: como isso vira evento</h3><p class="note">Desdobramento real de KV em palco, backdrop e crachá. Serve pra pensar o sistema, não a estética (as cores aqui são de outros clientes).</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://i.pinimg.com/736x/87/a6/9d/87a69dc9c37cd8fc9591e58d5f8b55af.jpg"><img src="refs/p213.jpg" alt="Backdrop de summit com blocos de cor e palavras nas bordas. A moldura vira cenog" loading="lazy" width="675" height="900"></a><figcaption>Backdrop de summit com blocos de cor e palavras nas bordas. A moldura vira cenografia.<span><a href="https://i.pinimg.com/736x/87/a6/9d/87a69dc9c37cd8fc9591e58d5f8b55af.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/d2/c9/d2/d2c9d2a9956ee68917379a4f3b123a0b.jpg"><img src="refs/p212.jpg" alt="Palco com painéis em cores sólidas e o título gigante. Tipografia em escala de L" loading="lazy" width="675" height="900"></a><figcaption>Palco com painéis em cores sólidas e o título gigante. Tipografia em escala de LED.<span><a href="https://i.pinimg.com/736x/d2/c9/d2/d2c9d2a9956ee68917379a4f3b123a0b.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/1f/99/98/1f9998e058b21062af7ebb17a2b4fb33.jpg"><img src="refs/p202.jpg" alt="Backdrop de convenção de franqueados em laranja, logos de patrocinador. O que um" loading="lazy" width="675" height="900"></a><figcaption>Backdrop de convenção de franqueados em laranja, logos de patrocinador. O que uma convenção de rede pede de verdade.<span><a href="https://i.pinimg.com/736x/1f/99/98/1f9998e058b21062af7ebb17a2b4fb33.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/55/f5/96/55f596a908fddaded153be031da182ad.jpg"><img src="refs/p201.jpg" alt="Inova Summit: KV desdobrado em crachá, pulseira, caneca, painel. Checklist de en" loading="lazy" width="600" height="900"></a><figcaption>Inova Summit: KV desdobrado em crachá, pulseira, caneca, painel. Checklist de entregáveis.<span><a href="https://i.pinimg.com/736x/55/f5/96/55f596a908fddaded153be031da182ad.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/c2/a2/01/c2a20170c8be057e4c564438f51fabb1.jpg"><img src="refs/p208.jpg" alt="Crachá YPX com faixa gráfica e QR. O KV cabe numa faixa de 2 cm." loading="lazy" width="675" height="900"></a><figcaption>Crachá YPX com faixa gráfica e QR. O KV cabe numa faixa de 2 cm.<span><a href="https://i.pinimg.com/736x/c2/a2/01/c2a20170c8be057e4c564438f51fabb1.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://i.pinimg.com/736x/fb/dd/55/fbdd55abee4397dfc9ecb5b4632b140a.jpg"><img src="refs/p209.jpg" alt="Lanyard, caderno e copo com o tema em três palavras. Tema como mantra repetido." loading="lazy" width="736" height="671"></a><figcaption>Lanyard, caderno e copo com o tema em três palavras. Tema como mantra repetido.<span><a href="https://i.pinimg.com/736x/fb/dd/55/fbdd55abee4397dfc9ecb5b4632b140a.jpg">imagem</a> · <a href="https://pt.pinterest.com/ideas/identidade-visual-evento-corporativo/896224525633/">board</a></span></figcaption></figure>
+    </div></div>
+    <div class="grp"><h3>Fotografia (Adobe Stock, comps com marca d&#x27;água)</h3><p class="note">Pra validar direção de foto, não pra usar. A rota certa é ensaio próprio com o time; estas servem de briefing pro fotógrafo e de placeholder no layout.</p>
+    <div class="gal">
+      <figure class="rf"><a href="https://stock.adobe.com/images/1878038306"><img src="refs/s16.jpg" alt="Bike courier in brown overalls and yellow delivery bag on city street" loading="lazy" width="334" height="500"></a><figcaption>Ciclista com mochila amarela, rua residencial, sol. O &#x27;entregador 99&#x27; sem ser 99.<span><a href="https://stock.adobe.com/images/1878038306">Adobe Stock #1878038306</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/1324554096"><img src="refs/s21.jpg" alt="Express delivery service" loading="lazy" width="500" height="334"></a><figcaption>Entregador de bike no meio da rua arborizada, olhando pra frente. Herói de janela central.<span><a href="https://stock.adobe.com/images/1324554096">Adobe Stock #1324554096</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/380502667"><img src="refs/s22.jpg" alt="delivery man on motorcycle" loading="lazy" width="500" height="333"></a><figcaption>Motoboy com baú amarelo, bairro de casas. Mais Brasil que o resto.<span><a href="https://stock.adobe.com/images/380502667">Adobe Stock #380502667</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/473453903"><img src="refs/s28.jpg" alt="Courier with insulated bag on scooter, local bakery" loading="lazy" width="500" height="333"></a><figcaption>Motoboy em frente a um comércio, lojista atrás no balcão. Lojista e entregador na mesma foto, raro.<span><a href="https://stock.adobe.com/images/473453903">Adobe Stock #473453903</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/291961041"><img src="refs/s20.jpg" alt="Female courier delivering fresh food with backpack" loading="lazy" width="500" height="334"></a><figcaption>Bag amarela cheia de legumes, close. Textura de produto pro mosaico.<span><a href="https://stock.adobe.com/images/291961041">Adobe Stock #291961041</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/305671668"><img src="refs/s19.jpg" alt="cargo bike" loading="lazy" width="500" height="333"></a><figcaption>Cargo bike amarela em avenida. Versão cidade grande.<span><a href="https://stock.adobe.com/images/305671668">Adobe Stock #305671668</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/353969788"><img src="refs/s25.jpg" alt="Motoboy with pizza boxes for delivery" loading="lazy" width="500" height="338"></a><figcaption>Entregador de jaqueta amarela com caixas, luz de fim de tarde. A luz certa.<span><a href="https://stock.adobe.com/images/353969788">Adobe Stock #353969788</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/428962710"><img src="refs/s26.jpg" alt="Courier delivering food at high speed through the city" loading="lazy" width="500" height="333"></a><figcaption>Dois ciclistas com mochila amarela, movimento. Pro vertical.<span><a href="https://stock.adobe.com/images/428962710">Adobe Stock #428962710</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/537095002"><img src="refs/s23.jpg" alt="Young rider checking address on smartphone, food delivery" loading="lazy" width="500" height="300"></a><figcaption>Ciclista e bonde amarelo. Amarelo repetido no cenário.<span><a href="https://stock.adobe.com/images/537095002">Adobe Stock #537095002</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/480820183"><img src="refs/s02.jpg" alt="Young hispanic worker wearing apron at the fruit store" loading="lazy" width="500" height="333"></a><figcaption>Dono de hortifruti, braços cruzados, frutas ao fundo. O lojista parceiro.<span><a href="https://stock.adobe.com/images/480820183">Adobe Stock #480820183</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/475334099"><img src="refs/s05.jpg" alt="Opening small business" loading="lazy" width="500" height="333"></a><figcaption>Lojista com tablet e avental, luz quente. Operação, não pose.<span><a href="https://stock.adobe.com/images/475334099">Adobe Stock #475334099</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/1094956694"><img src="refs/s07.jpg" alt="confident male barista of coffee shop" loading="lazy" width="500" height="334"></a><figcaption>Dono de bar sorrindo no balcão. Pequeno comércio de bairro.<span><a href="https://stock.adobe.com/images/1094956694">Adobe Stock #1094956694</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/466435161"><img src="refs/s11.jpg" alt="Happy family unpacking groceries at home" loading="lazy" width="500" height="319"></a><figcaption>Mãe e filha com sacolas de papel kraft. O lado de casa do 99Compras.<span><a href="https://stock.adobe.com/images/466435161">Adobe Stock #466435161</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/319168309"><img src="refs/s12.jpg" alt="Mother and daughter looking at paper bag with groceries" loading="lazy" width="334" height="500"></a><figcaption>Mãe e filha desembalando compras, avental amarelo. Cozinha, kraft, amarelo.<span><a href="https://stock.adobe.com/images/319168309">Adobe Stock #319168309</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/308514406"><img src="refs/s30.jpg" alt="Smiling woman with curly hair on yellow background" loading="lazy" width="500" height="333"></a><figcaption>Retrato sobre amarelo chapado. Se for fazer ensaio de time em estúdio, é este fundo.<span><a href="https://stock.adobe.com/images/308514406">Adobe Stock #308514406</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/410105612"><img src="refs/s33.jpg" alt="Curly girl smiling on vivid yellow background" loading="lazy" width="500" height="333"></a><figcaption>Retrato sobre amarelo, sorriso aberto, camiseta clara. Idem, variação.<span><a href="https://stock.adobe.com/images/410105612">Adobe Stock #410105612</a></span></figcaption></figure>
+      <figure class="rf"><a href="https://stock.adobe.com/images/251030154"><img src="refs/s34.jpg" alt="Young woman over yellow wall smiling" loading="lazy" width="500" height="334"></a><figcaption>Retrato sobre amarelo, mãos na cintura. Postura de &#x27;dono do negócio&#x27;.<span><a href="https://stock.adobe.com/images/251030154">Adobe Stock #251030154</a></span></figcaption></figure>
+    </div></div>
+    <p class="note" style="margin-top:22px">Behance, Unsplash e Pexels bloqueiam acesso automático, então não entraram. Adobe Stock veio pelo conector Adobe: são comps com marca d'água, licenciar antes de usar. Pinterest: a busca direta é fechada, as imagens vieram de boards públicos.</p>
+  </div>
+</section>
+
+<!-- DNA DA MARCA -->
+<section class="band yellow">
+  <div class="in">
+    <p class="eyebrow">03 · O que o pocket guide deixa usar</p>
+    <h2>DNA 99Compras</h2>
+    <div class="cols" style="margin-top:8px">
+      <div>
+        <h3>Paleta</h3>
+        <div class="swatches">
+          <div class="sw" style="background:#FFDD00;color:#212121;outline:2px solid #212121">#FFDD00<small>PMS Yellow · fundo</small></div>
+          <div class="sw" style="background:#212121;color:#F1F1F1">#212121<small>PMS Black · tipografia e logo</small></div>
+          <div class="sw" style="background:#F1F1F1;color:#212121">#F1F1F1<small>PMS 663 · respiro</small></div>
+          <div class="sw" style="background:#FF7B1C;color:#212121">#FF7B1C<small>PMS 151 · acento, pouco</small></div>
+        </div>
+        <p class="note" style="margin-top:12px">Proporção sugerida pro KV</p>
+        <div class="ratio" aria-hidden="true"><i style="width:62%;background:#FFDD00"></i><i style="width:20%;background:#212121"></i><i style="width:12%;background:#F1F1F1"></i><i style="width:6%;background:#FF7B1C"></i></div>
+        <p class="note">Amarelo domina, preto segura o título, o laranja aparece só em um detalhe (o grafismo dentro da palavra, por exemplo). Se o laranja crescer, vira a ref do Itaú.</p>
+      </div>
+      <div>
+        <h3>Tipografia</h3>
+        <div class="typeline">
+          <span style="font-weight:900;font-size:40px;letter-spacing:-.03em;line-height:1">DiDi Sans Bold</span>
+          <span style="font-weight:500;font-size:22px">DiDi Sans Medium</span>
+          <span style="font-weight:500;font-size:16px;opacity:.7">DiDi Sans Regular / Thin</span>
+        </div>
+        <p class="note" style="margin-top:12px">O guide libera a DiDi Sans para peças publicitárias. O título em Bold, caixa baixa, tracking negativo. Nesta prancha a fonte é uma substituta visual (Outfit); o layout final vai em DiDi Sans.</p>
+        <h3 style="margin-top:26px">Logo</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+          <div class="logo on-yellow"><b>99</b><span>Compras</span></div>
+          <div class="logo on-ink"><b>99</b><span>Compras</span></div>
+        </div>
+      </div>
+      <div>
+        <h3>Regras que mexem no KV</h3>
+        <ul class="rules">
+          <li>Logo sempre inteiro e com contraste. Sobre foto, usar o retângulo de canto arredondado como proteção.</li>
+          <li>Em título, pode usar o "99" do logo e escrever "compras" no texto corrido. Isso abre a rota C, com o 99 gigante.</li>
+          <li>Em texto corrido é "99Compras", C maiúsculo, sem logo no meio da frase.</li>
+          <li>Nunca separar, distorcer ou recolorir o logo. O 99 em janela de foto só vale se o lockup do logo continuar íntegro na assinatura.</li>
+          <li>Fotografia da marca: entregador de amarelo, saco de papel 99Compras, cozinha, mesa, luz de fim de tarde.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEITO -->
+<section class="band">
+  <div class="in">
+    <p class="eyebrow">04 · Do tema pra imagem</p>
+    <h2>"O legado começa aqui" é um paradoxo, e o KV precisa mostrar isso</h2>
+    <p class="lead">Legado normalmente olha pra trás. O tema vira isso: o legado é o que o time está construindo agora, no primeiro ciclo do 99Compras. Então o KV não pode parecer retrospectiva. Tem que parecer começo, largada, primeira pedra.</p>
+    <div class="concept" style="margin-top:28px">
+      <article>
+        <div class="glyph"><div class="g-portal"></div></div>
+        <h3>A janela é o "aqui"</h3>
+        <p>A forma de proteção do logo (o squircle do app icon) vira a moldura da foto. É o mesmo gesto do Itaú, mas com uma forma que já é da 99. Dentro da janela, o presente: a loja, o entregador, o time. O "aqui" do tema é um lugar físico, a janela faz esse lugar existir.</p>
+      </article>
+      <article>
+        <div class="glyph"><div class="g-rings"></div></div>
+        <h3>Os anéis são o legado</h3>
+        <p>Anéis concêntricos tonais saindo da janela, do amarelo mais forte pro mais claro. É onda que se espalha: o que começa no centro chega longe. Vira sistema fácil de animar no telão (os anéis pulsam, crescem, revelam) e funciona como textura de cenografia sem foto.</p>
+      </article>
+      <article>
+        <div class="glyph"><div class="g-type">começa<small>传承始于此</small></div></div>
+        <h3>O título é bilíngue por natureza</h3>
+        <p>A 99 é DiDi. O chinês embaixo do título não é tradução, é assinatura de origem. Ele entra menor, no mesmo peso, mesma cor, alinhado à esquerda do bloco em português. Tratar como parte do lockup, não como legenda.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ROTAS -->
+<section class="band" style="background:var(--paper-2)">
+  <div class="in">
+    <p class="eyebrow">05 · Três rotas de composição</p>
+    <h2>Mesma gramática, três ênfases</h2>
+    <p class="lead" style="margin-bottom:34px">Os sketches abaixo são esquemas de layout, não arte. As manchas marrons são onde entra foto real. O objetivo é escolher a arquitetura antes de abrir o Photoshop.</p>
+    <div class="routes">
+
+      <div class="route">
+        <div class="sk skA" role="img" aria-label="Sketch rota A: janela central com foto, anéis concêntricos, título dividido nos dois lados">
+          <div class="rg rg3"></div><div class="rg rg2"></div><div class="rg rg1"></div>
+          <div class="win"></div>
+          <div class="t t1">o legado<br>começa</div>
+          <div class="t t2">aqui</div>
+          <div class="cn">传承始于此</div>
+          <div class="lg"><b>99</b>Compras</div>
+        </div>
+        <div>
+          <span class="tag">Rota A · Moldura</span>
+          <h3>Uma janela, anéis, título em dois lados</h3>
+          <div class="pros">
+            <p><b>Vem de</b>Itaú. Uma foto só, forte, no centro. O título passa na frente à esquerda e atrás à direita, criando profundidade sem efeito.</p>
+            <p><b>A favor</b>É a mais fiel ao conceito (janela = aqui, anéis = legado). Desdobra fácil: crachá, backdrop e telão só mudam o tamanho da janela. Os anéis viram motion sem precisar de foto.</p>
+            <p><b>Contra</b>Depende de uma foto excelente, com um rosto que aguente ser o centro de tudo. Se a foto for de banco, cai. E com uma pessoa só, pode parecer campanha de produto, não convenção de time.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="route">
+        <div class="sk skB" role="img" aria-label="Sketch rota B: mosaico de fotos arredondadas, pessoa em primeiro plano, título branco gigante atravessando">
+          <div class="tile" style="left:4cqw;top:6cqw;width:30cqw;height:24cqw;background:var(--photo-a)"></div>
+          <div class="tile" style="right:4cqw;top:5cqw;width:34cqw;height:30cqw;background:var(--photo-c)"></div>
+          <div class="tile" style="right:6cqw;bottom:5cqw;width:28cqw;height:20cqw;background:var(--photo-b)"></div>
+          <div class="tile" style="left:6cqw;bottom:5cqw;width:22cqw;height:18cqw;background:var(--photo-c)"></div>
+          <div class="hero"></div>
+          <div class="t t1">o legado<br>começa<br>aqui</div>
+          <div class="cn" style="color:#fff">传承始于此</div>
+          <div class="lg"><b>99</b>Compras</div>
+        </div>
+        <div>
+          <span class="tag">Rota B · Mosaico</span>
+          <h3>Várias fotos, uma pessoa na frente, título branco</h3>
+          <div class="pros">
+            <p><b>Vem de</b>Shell Select. Colagem de momentos (loja, entrega, cozinha, cliente) com uma pessoa em primeiro plano e o título branco cruzando tudo.</p>
+            <p><b>A favor</b>Conta a cadeia inteira do 99Compras numa imagem. Boa pra convenção porque cabe o time, o lojista e o entregador. Usa fotos que a marca já tem.</p>
+            <p><b>Contra</b>Amarelo + mosaico + título branco bold é literalmente a Shell Select. A 99 corre o risco de parecer cópia de posto de gasolina. Pra sair disso, o título tem que ir pro preto (que é o que o guide pede) e o mosaico tem que usar a forma do app icon, não retângulo genérico. E é a rota mais pesada pra animar e mais difícil de desdobrar em formato vertical.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="route">
+        <div class="sk skC" role="img" aria-label="Sketch rota C: o número 99 gigante preenchido com foto, título menor embaixo">
+          <div class="nn">99</div>
+          <div class="t t1">o legado começa aqui</div>
+          <div class="cn">传承始于此</div>
+          <div class="lg"><b>99</b>Compras</div>
+        </div>
+        <div>
+          <span class="tag">Rota C · Portal 99</span>
+          <h3>O 99 vira a janela</h3>
+          <div class="pros">
+            <p><b>Vem de</b>Da regra do guide que permite usar o "99" do logo em título. O número gigante funciona como máscara da foto, e a frase entra embaixo, menor.</p>
+            <p><b>A favor</b>É a única das três que ninguém mais pode fazer. Dá um ícone de evento instantâneo, ótimo pra cenografia física (dois 99 em volume no palco, com LED por dentro). Minimiza a dependência de uma foto perfeita, porque a foto é textura.</p>
+            <p><b>Contra</b>Precisa de aprovação de marca: o 99 com foto dentro flerta com "distorção do logo", que o guide proíbe. Só vale se o logo íntegro continuar como assinatura e o 99 gigante for tratado como tipografia de título, não como logo. O título em si perde escala, então o tema fica menos legível à distância.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="prose" style="margin-top:36px">
+      <h3>Minha leitura</h3>
+      <p>A rota A é a que melhor traduz o tema e a mais segura de produzir. A rota C é a mais ousada e a que mais rende em palco, mas pede conversa com o marketing da 99 antes de desenhar. A B é a que você mais gostou na ref, e justamente por isso é a mais arriscada: a Shell já ocupou esse território com a mesma cor. Se for B, o título vai pro preto e o mosaico usa a forma do app icon, senão não tem como defender.</p>
+      <p style="margin-top:12px">Um caminho híbrido que vale testar: estrutura da A (janela central e anéis) com o 99 da C como a própria janela. Resolve o problema de "parecer campanha de produto" e mantém a assinatura única.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHINÊS -->
+<section class="band">
+  <div class="in">
+    <p class="eyebrow">06 · Título em chinês</p>
+    <h2>Três formas de dizer, uma recomendada</h2>
+    <p class="lead">"Legado" em chinês tem duas palavras. 遗产 (yíchǎn) é herança de bens, soa a testamento, não usar. 传承 (chuánchéng) é o que passa de uma geração pra outra, conhecimento e valores. É essa.</p>
+    <div class="cn-opts" style="margin-top:26px">
+      <div class="cn-opt lead-opt">
+        <span class="tag">Recomendada</span>
+        <div class="big">传承始于此</div>
+        <div class="py">chuánchéng shǐ yú cǐ</div>
+        <p>"O legado começa aqui", em registro clássico e compacto. Cinco caracteres, cabe embaixo de qualquer tamanho de título. Soa a slogan de marca, não a frase traduzida.</p>
+      </div>
+      <div class="cn-opt">
+        <span class="tag" style="background:var(--paper-2);color:var(--ink)">Literal</span>
+        <div class="big">传承，从这里开始</div>
+        <div class="py">chuánchéng, cóng zhèlǐ kāishǐ</div>
+        <p>Tradução direta, tom de conversa. Oito caracteres mais vírgula, fica longa e perde força como lockup. Boa pra texto de apoio, não pra título.</p>
+      </div>
+      <div class="cn-opt">
+        <span class="tag" style="background:var(--paper-2);color:var(--ink)">Muda o sentido</span>
+        <div class="big">传奇从此开始</div>
+        <div class="py">chuánqí cóng cǐ kāishǐ</div>
+        <p>"A lenda começa aqui." Mais épica, mais usada em campanha de marca na China. Só que deixa de ser legado e vira lenda. Se o cliente quiser mais impacto do que fidelidade, é opção.</p>
+      </div>
+    </div>
+    <div class="lockup">
+      <div class="pt">o legado começa aqui</div>
+      <div class="zh">传承始于此</div>
+      <p class="cap">Lockup sugerido: chinês a 35% a 40% do corpo do português, mesmo peso (Black), mesma cor, alinhado à esquerda, tracking aberto. A DiDi Sans provavelmente não tem glifos chineses; a DiDi tem uma família CJK própria interna, vale pedir ao cliente. Se não vier, usar Source Han Sans Heavy (a mesma Noto Sans SC desta prancha), que é o par aberto mais próximo.</p>
+    </div>
+    <p class="note" style="margin-top:14px">Validar a frase com alguém da DiDi antes de fechar arte. A 99 tem gente nativa na casa, custa uma mensagem e evita o KV ir pra China com uma frase estranha.</p>
+  </div>
+</section>
+
+<!-- FOTO -->
+<section class="band yellow">
+  <div class="in">
+    <p class="eyebrow">07 · Direção de foto</p>
+    <h2>O que entra na janela</h2>
+    <div class="cols">
+      <div class="prose">
+        <p>As duas refs vivem de foto real. O pocket guide também: entregador de amarelo na bike, saco de papel kraft com o logo, azulejo laranja, pão na mesa. A foto do KV tem que parecer que foi feita no Brasil, numa cidade que o time reconhece, com luz de fim de tarde.</p>
+        <p>Pra convenção interna, a pessoa na janela não pode ser modelo de banco. Ou é foto do próprio time (melhor), ou é um ensaio feito pra isso com lojista e entregador reais. É o "aqui" do tema. Se a foto for genérica, o tema some.</p>
+        <p>Evitar: 3D, render, pessoa olhando pra câmera com sorriso de stock, cidade genérica, fundo escuro.</p>
+      </div>
+      <div class="photo-grid">
+        <div class="ph" style="background:var(--photo-a)">Entregador de amarelo, bike, rua de bairro, 17h</div>
+        <div class="ph" style="background:var(--photo-b)">Lojista no balcão com o saco 99Compras</div>
+        <div class="ph" style="background:var(--photo-c)">Time rindo, reunião, vista da cidade</div>
+        <div class="ph" style="background:linear-gradient(160deg,#c45a10,#ffb15c)">Cozinha de casa, sacola aberta na mesa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISCOS -->
+<section class="band dark">
+  <div class="in">
+    <p class="eyebrow">08 · Onde isso pode dar errado</p>
+    <h2>Riscos e como fechar cada um</h2>
+    <div class="risk">
+      <div><h3>Parecer Shell Select</h3><p>O amarelo da Shell é quase o #FFDD00. Com título branco e mosaico, é a mesma peça. Resolve com título preto (regra do guide), moldura em squircle do app icon e os anéis, que a Shell não usa.</p></div>
+      <div><h3>Parecer campanha de produto</h3><p>Convenção interna com foto de cliente feliz parece anúncio de app. Resolve colocando o time na janela, ou pelo menos quem faz a operação (lojista, entregador).</p></div>
+      <div><h3>Chinês como enfeite</h3><p>Se o título em chinês ficar minúsculo ou em cor diferente, vira ornamento e pode soar a caricatura. Resolve tratando como parte do lockup, mesmo peso e cor, e validando a frase com nativo.</p></div>
+      <div><h3>Laranja crescendo</h3><p>O laranja PMS 151 é bonito e tentador. Se passar de detalhe, o KV vira a ref do Itaú. Segurar em um elemento só.</p></div>
+      <div><h3>Rota C e o guide de marca</h3><p>O 99 com foto dentro pode ser lido como distorção de logo. Mandar a rota como "tipografia de título" com o logo íntegro na assinatura e pedir ok formal antes de investir.</p></div>
+      <div><h3>Legibilidade à distância</h3><p>Título em caixa baixa, bold, preto sobre amarelo lê bem de longe. Branco sobre amarelo (rota B) não. No telão e no backdrop, o contraste manda.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRÓXIMOS PASSOS -->
+<section class="band next">
+  <div class="in">
+    <p class="eyebrow">09 · Pra virar KV</p>
+    <h2>O que falta pra abrir arquivo</h2>
+    <ol>
+      <li>Escolher a rota (A, C ou o híbrido A+C) e fechar o título em chinês com alguém da DiDi.</li>
+      <li>Pedir ao cliente: DiDi Sans completa, família CJK se existir, banco de fotos do 99Compras e fotos do time.</li>
+      <li>Definir a foto da janela: ensaio próprio ou acervo. Isso decide o cronograma.</li>
+      <li>Montar o KV em 16:9 (telão) e tirar dali o vertical (crachá, totem) e o horizontal largo (backdrop), mantendo janela e anéis como constantes.</li>
+      <li>Passar pelo revisor de arte da Smash antes de mandar pra aprovação.</li>
+    </ol>
+    <p class="foot">Cores e tipografia conforme 99Compras Pocket Guide v3. Fotos representadas por manchas de cor; nenhuma imagem desta prancha é arte final.</p>
+  </div>
+</section>
