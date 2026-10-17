@@ -23,7 +23,7 @@ Para instalar já compartilhado num projeto (via `.claude/settings.json`):
 
 | Plugin  | O que faz |
 |---------|-----------|
-| `smash` | Ferramentas da Smash. Inclui a skill `/smash:impacta-pos-evento` — dashboard de pós-evento no Método Impacta. |
+| `smash` | Ferramentas da Smash. Inclui `/smash:impacta-pos-evento` (dashboard de pós-evento no Método Impacta) e `/smash:KV-moodboard` (mood board de KV com refs reais de Pinterest e Adobe Stock, rotas de composição e título bilíngue). |
 
 ## Estrutura do repositório
 ```
@@ -36,7 +36,8 @@ smash-plugins/
         ├── hooks/hooks.json      # instala pymupdf/pillow na 1ª sessão
         ├── requirements.txt
         └── skills/
-            └── impacta-pos-evento/
+            ├── impacta-pos-evento/
+            └── KV-moodboard/        # prancha de direção de arte do KV
 ```
 
 ## Manutenção
