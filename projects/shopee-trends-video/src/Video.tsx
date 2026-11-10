@@ -520,6 +520,7 @@ const S7: React.FC = () => {
 };
 
 // 30.9–34.5 "Do MEI que abriu a loja ontem, à loja que já tem equipe."
+const SKEW_DEG = Math.atan2(180, 1080) * (180 / Math.PI);
 const S8: React.FC = () => {
   const frame = useCurrentFrame();
   const split = interpolate(frame, [sec(1.9), sec(2.4)], [0, 1], {
@@ -529,13 +530,37 @@ const S8: React.FC = () => {
   });
   // diagonal wipe from the right revealing the team photo
   const x1 = interpolate(split, [0, 1], [2100, 1000]);
-  const x2 = interpolate(split, [0, 1], [2300, 820]);
   return (
     <AbsoluteFill style={{ background: C.red }}>
       <Photo src="gen/c01.jpg" from={1.0} to={1.08} driftX={10} clipOffset={6} />
-      <AbsoluteFill style={{ clipPath: `polygon(${x1}px 0, 2200px 0, 2200px 1080, ${x2}px 1080)` }}>
-        <Photo src="gen/c08.jpg" from={1.08} to={1.0} />
-      </AbsoluteFill>
+      {/* diagonal wipe via skewed overflow-hidden container (clip-path polygon proved unreliable here) */}
+      <div
+        style={{
+          position: "absolute",
+          left: x1,
+          top: 0,
+          width: 2400,
+          height: 1080,
+          overflow: "hidden",
+          transform: `skewX(${-SKEW_DEG}deg)`,
+          transformOrigin: "top left",
+          display: split > 0 ? "block" : "none",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            left: -x1,
+            top: 0,
+            width: 1920,
+            height: 1080,
+            transform: `skewX(${SKEW_DEG}deg)`,
+            transformOrigin: "top left",
+          }}
+        >
+          <Photo src="gen/c08.jpg" from={1.08} to={1.0} />
+        </div>
+      </div>
       {/* thin orange divider */}
       <div
         style={{
@@ -545,7 +570,7 @@ const S8: React.FC = () => {
           width: 24,
           height: 1200,
           background: C.orange,
-          transform: `skewX(${Math.atan2(180, 1080) * (180 / Math.PI)}deg)`,
+          transform: `skewX(${-SKEW_DEG}deg)`,
           transformOrigin: "top left",
           opacity: split,
         }}
