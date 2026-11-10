@@ -12,6 +12,8 @@ import {
   useVideoConfig,
 } from "remotion";
 import { loadFont } from "@remotion/fonts";
+import { OffthreadVideo } from "remotion";
+import { CLIPS } from "./clips";
 
 // ---------- Fonts ----------
 loadFont({
@@ -66,7 +68,8 @@ const Seq: React.FC<{
   </Sequence>
 );
 
-/** Full-bleed photo with Ken Burns. scale from -> to, drift in px. */
+/** Full-bleed shot: uses the generated clip (gen/cXX.mp4) when present,
+ *  otherwise the still with Ken Burns. scale from -> to, drift in px. */
 const Photo: React.FC<{
   src: string;
   from?: number;
@@ -74,13 +77,30 @@ const Photo: React.FC<{
   driftX?: number;
   driftY?: number;
   style?: React.CSSProperties;
-}> = ({ src, from = 1.0, to = 1.08, driftX = 0, driftY = 0, style }) => {
+  clipOffset?: number; // seconds into the clip to start
+}> = ({ src, from = 1.0, to = 1.08, driftX = 0, driftY = 0, style, clipOffset = 0 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  const { durationInFrames, fps } = useVideoConfig();
   const p = interpolate(frame, [0, durationInFrames], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+  const clip = src.replace(/\.(jpg|png)$/, ".mp4");
+  const hasClip = CLIPS.includes(clip.replace(/^gen\//, ""));
+  if (hasClip) {
+    // clips carry their own motion: only a gentle residual scale
+    const s = 1 + (to - from) * 0.25 * p;
+    return (
+      <AbsoluteFill style={style}>
+        <OffthreadVideo
+          src={staticFile(clip)}
+          muted
+          startFrom={Math.round(clipOffset * fps)}
+          style={{ width: "100%", height: "100%", objectFit: "cover", transform: `scale(${s})` }}
+        />
+      </AbsoluteFill>
+    );
+  }
   const s = from + (to - from) * p;
   return (
     <AbsoluteFill style={style}>
