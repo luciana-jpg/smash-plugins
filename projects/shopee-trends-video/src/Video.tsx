@@ -89,7 +89,7 @@ const Photo: React.FC<{
   const hasClip = CLIPS.includes(clip.replace(/^gen\//, ""));
   if (hasClip) {
     // clips carry their own motion: only a gentle residual scale
-    const s = 1 + (to - from) * 0.25 * p;
+    const s = 1 + Math.abs(to - from) * 0.3 * p; // never below 1: no background bleed at the edges
     return (
       <AbsoluteFill style={style}>
         <OffthreadVideo
