@@ -532,7 +532,7 @@ const S8: React.FC = () => {
   const x2 = interpolate(split, [0, 1], [2300, 820]);
   return (
     <AbsoluteFill style={{ background: C.red }}>
-      <Photo src="gen/c01.jpg" from={1.0} to={1.08} driftX={10} />
+      <Photo src="gen/c01.jpg" from={1.0} to={1.08} driftX={10} clipOffset={6} />
       <AbsoluteFill style={{ clipPath: `polygon(${x1}px 0, 2200px 0, 2200px 1080, ${x2}px 1080)` }}>
         <Photo src="gen/c08.jpg" from={1.08} to={1.0} />
       </AbsoluteFill>
