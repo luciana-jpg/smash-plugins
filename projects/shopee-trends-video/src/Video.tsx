@@ -43,7 +43,7 @@ export const C = {
 };
 
 export const FPS = 30;
-export const DURATION_SECONDS = 54;
+export const DURATION_SECONDS = 51.5;
 const sec = (t: number) => Math.round(t * FPS);
 
 const FONT = "Quicksand, system-ui, sans-serif";
@@ -679,30 +679,6 @@ const S12: React.FC = () => {
   );
 };
 
-// 48.7–53.0: carousel through the KV family, one into the other
-const S13: React.FC = () => {
-  const order = [
-    { src: "kv/1.png", cx: 960, cy: 540 },
-    { src: "kv/3.png", cx: 540, cy: 540 },
-    { src: "kv/4.png", cx: 1300, cy: 540 },
-    { src: "kv/5.png", cx: 700, cy: 500 },
-    { src: "kv/2.png", cx: 960, cy: 540 },
-  ];
-  const kvs = [...order, ...order].map((k, i) => ({ ...k, t: i * 0.42, key: `${k.src}-${i}` }));
-  return (
-    <AbsoluteFill style={{ background: C.orange }}>
-      <Img src={staticFile("kv/2.png")} style={{ width: "100%", height: "100%" }} />
-      {kvs.map((k) => (
-        <Sequence key={k.key} from={sec(k.t)} layout="none">
-          <CircleReveal cx={k.cx} cy={k.cy} dur={10} maxR={1500}>
-            <Img src={staticFile(k.src)} style={{ width: "100%", height: "100%" }} />
-          </CircleReveal>
-        </Sequence>
-      ))}
-    </AbsoluteFill>
-  );
-};
-
 // ---------- Main ----------
 export const ShopeeTrendsVideo: React.FC = () => {
   return (
@@ -720,8 +696,7 @@ export const ShopeeTrendsVideo: React.FC = () => {
       <Seq from={34.5} to={38.1} name="S9 portas"><S9 /></Seq>
       <Seq from={38.1} to={41.9} name="S10 retrato"><S10 /></Seq>
       <Seq from={41.9} to={44.6} name="S11 sellers"><S11 /></Seq>
-      <Seq from={44.6} to={48.7} name="S12 KV build"><S12 /></Seq>
-      <Seq from={48.7} to={DURATION_SECONDS} name="S13 KV carousel"><S13 /></Seq>
+      <Seq from={44.6} to={DURATION_SECONDS} name="S12 KV build"><S12 /></Seq>
     </AbsoluteFill>
   );
 };
